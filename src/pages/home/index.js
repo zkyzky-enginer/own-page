@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { Col, Row, Button, Space, Divider, Menu } from 'antd';
 import './index.css';
+import { ArrowRightOutlined } from '@ant-design/icons';
 
 const person_Message = {
 	en_name: 'Zhou KangYu',
@@ -67,8 +68,9 @@ export default function Home() {
 						<div className="pl-[0.8rem] text-[1.4rem]">职业:{person_Message.profession}</div>
 						<div className="pl-[0.8rem] text-[1.4rem]">联系电话:{person_Message.phone}</div>
 						<div className="pl-[0.8rem] text-[1.4rem]">联系Email:{person_Message.email}</div>
-						<Button type="primary" className="top-button">
+						<Button type="primary" className="top-button ">
 							查看详情
+							<ArrowRightOutlined />
 						</Button>
 					</Space>
 				</Col>
