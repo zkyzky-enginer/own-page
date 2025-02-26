@@ -11,6 +11,11 @@ function App() {
 		<ConfigProvider
 			theme={{
 				token: primary_theme,
+				components: {
+					Menu: {
+						itemBg: '#FAFAFA',
+					},
+				},
 			}}
 		>
 			<BrowserRouter>
