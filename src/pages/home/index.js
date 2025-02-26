@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react';
 import { Col, Row, Button, Space, Divider, Menu } from 'antd';
 import './index.css';
 import { ArrowRightOutlined } from '@ant-design/icons';
-
 const person_Message = {
 	en_name: 'Zhou KangYu',
 	name: '周康瑜',
@@ -17,28 +16,9 @@ const nav_list = [
 	{ title: '社交媒体', value: 'social_media' },
 ];
 
-const items = [
-	{
-		label: 'Navigation One',
-		key: 'mail',
-	},
-	{
-		label: 'Navigation Two',
-		key: 'app',
-	},
-	{
-		label: 'Navigation Three - Submenu',
-		key: 'SubMenu',
-	},
-];
-
 export default function Home() {
-	const [current, setCurrent] = useState('mail');
 	return (
 		<div className="h-[54rem] bg-[#fafafa] border relative top-banner">
-			{/* 菜单 */}
-			<span className="absolute top-0.8rem left-1.6rem text-[1.4rem] text-[#666]">Zky Own Page</span>
-			<Menu selectedKeys={[current]} mode="horizontal" items={items} />
 			{/* top板块 */}
 			<Row justify="center" align="middle" gutter={[16, 16]} className="h-[54rem]">
 				<Col span={12}>
@@ -75,7 +55,6 @@ export default function Home() {
 					</Space>
 				</Col>
 			</Row>
-
 			<Row className="h-[4rem] bg-[#f8f8f8]">
 				{nav_list.map(item => (
 					<Col key={item.value} span={8} className="text-center">

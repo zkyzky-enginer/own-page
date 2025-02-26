@@ -62,11 +62,6 @@
 	animation: rotate 2s infinite;
 }
 
-.ant-menu-horizontal {
-	border-bottom: none;
-	justify-content: end;
-}
-
 .person-photo {
 	/* background-image: url(/src/assets/images/zky1.jpg); */
 	background-size: cover;

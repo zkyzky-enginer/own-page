@@ -1,0 +1,8 @@
+.ant-menu-horizontal {
+	border-bottom: none;
+	justify-content: end;
+}
+
+.ant-layout-header {
+	background-color: #fafafa;
+}
