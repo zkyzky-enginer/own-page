@@ -1,6 +1,8 @@
 .bg {
-	/* background-image: url('/src/assets/images/blog-bg.png'); */
+	background-image: url('/src/assets/images/blog-bg.svg');
 	background-repeat: no-repeat;
+	/* background: rgb(218, 255, 196);
+	background: linear-gradient(90deg, rgba(218, 255, 196, 1) 18%, rgba(164, 205, 255, 1) 63%); */
 	background-size: cover;
 	background-color: #fafafa;
 }
