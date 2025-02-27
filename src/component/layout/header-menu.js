@@ -22,12 +22,11 @@ const items = [
 
 export default function HeaderMenu() {
 	const [current, setCurrent] = useState('home');
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const onClick = e => {
 		setCurrent(e.key);
-		console.log(e, 34);
 		// 跳转路由
-		// navigate('/', { replace: false });
+		navigate(e.key === 'home' ? '/' : '/' + e.key, { replace: false });
 	};
 
 	return (

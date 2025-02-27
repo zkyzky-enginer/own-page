@@ -10,17 +10,11 @@ const person_Message = {
 	email: '1161437723@qq.com',
 };
 
-const nav_list = [
-	{ title: '作品集', value: 'portfolio' },
-	{ title: '技术博客', value: 'technical_blog' },
-	{ title: '社交媒体', value: 'social_media' },
-];
-
 export default function Home() {
 	return (
-		<div className="h-[54rem] bg-[#fafafa] border relative top-banner">
+		<div className={`bg-[#fafafa]  relative top-banner h-[100%]`}>
 			{/* top板块 */}
-			<Row justify="center" align="middle" gutter={[16, 16]} className="h-[54rem]">
+			<Row justify="center" align="middle" className="h-[85%]">
 				<Col span={12}>
 					{/* 头像圈 */}
 					<div className="w-full flex justify-center ">
@@ -45,6 +39,7 @@ export default function Home() {
 							<Divider type="vertical" />
 							<span className="text-[2.4rem] text-[#666]">{person_Message.en_name}</span>
 						</div>
+						<span className="bg-[#26A69A] h-[0.2rem] w-[32rem] inline-block rounded-[2rem]"></span>
 						<div className="pl-[0.8rem] text-[1.4rem]">职业:{person_Message.profession}</div>
 						<div className="pl-[0.8rem] text-[1.4rem]">联系电话:{person_Message.phone}</div>
 						<div className="pl-[0.8rem] text-[1.4rem]">联系Email:{person_Message.email}</div>
@@ -54,15 +49,6 @@ export default function Home() {
 						</Button>
 					</Space>
 				</Col>
-			</Row>
-			<Row className="h-[4rem] bg-[#f8f8f8]">
-				{nav_list.map(item => (
-					<Col key={item.value} span={8} className="text-center">
-						<Button type="link" className="nav-button">
-							{item.title}
-						</Button>
-					</Col>
-				))}
 			</Row>
 		</div>
 	);

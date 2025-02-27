@@ -1,0 +1,14 @@
+.bg {
+	/* background-image: url('/src/assets/images/blog-bg.png'); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #fafafa;
+}
+
+.ant-tabs-tabpane {
+	padding: 2rem;
+}
+
+.ant-tabs-nav {
+	padding-top: 2rem;
+}

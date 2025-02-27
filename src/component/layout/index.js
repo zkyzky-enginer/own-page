@@ -4,16 +4,14 @@ import './index.css';
 export default function LayoutContent({ children }) {
 	const { Header, Footer, Sider, Content } = Layout;
 	return (
-		<>
-			<Flex gap="middle" wrap>
-				<Layout>
-					<Header>
-						<HeaderMenu></HeaderMenu>
-					</Header>
-					<Content>{children}</Content>
-					{/* <Footer>Footer</Footer> */}
-				</Layout>
-			</Flex>
-		</>
+		<Flex gap="middle" wrap className="h-full">
+			<Layout>
+				<Header className="border-b border-[#D1D9E0]">
+					<HeaderMenu></HeaderMenu>
+				</Header>
+				<Content>{children}</Content>
+				{/* <Footer>Footer</Footer> */}
+			</Layout>
+		</Flex>
 	);
 }
