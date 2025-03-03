@@ -11,29 +11,30 @@
 	padding: 2rem;
 }
 
+.ant-tabs-nav-list {
+	min-width: 200px;
+}
+
 .ant-tabs-nav {
 	padding-top: 2rem;
 }
 
-.waterfall-container {
+.ant-tabs-tab {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 16px; /* 卡片之间的间距 */
+	justify-content: center;
+}
+
+.my-masonry-grid {
+	display: flex;
+	margin-left: 0px; /* 调整间距 */
+	width: auto;
+}
+
+.my-masonry-grid_column {
+	padding-left: 12px; /* 调整间距 */
+	background-clip: padding-box;
 }
 
 .card-item {
-	flex: 1 1 calc(33.333% - 16px); /* 每行显示3列，减去间距 */
-	box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-	.card-item {
-		flex: 1 1 calc(50% - 16px); /* 在小屏幕上每行显示2列 */
-	}
-}
-
-@media (max-width: 480px) {
-	.card-item {
-		flex: 1 1 100%; /* 在超小屏幕上每行显示1列 */
-	}
+	margin-bottom: 16px; /* 卡片之间的间距 */
 }

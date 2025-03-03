@@ -62,7 +62,7 @@ export default function Blog() {
 	return (
 		<div className="bg w-full h-full">
 			<Row className="h-full" justify="center" align="top">
-				<Col span={22} className="h-full">
+				<Col span={24} className="h-full">
 					<Tabs defaultActiveKey={tabActiveKey} tabPosition={tabPosition} items={menu_list} onChange={changeTabActiveKey} className="h-full" />
 				</Col>
 			</Row>
