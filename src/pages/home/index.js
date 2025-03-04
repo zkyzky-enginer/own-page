@@ -41,16 +41,6 @@ const person_Message = {
 			value: '123456789123',
 			icon: () => <PhoneFilled />,
 		},
-		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
-		},
-		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
-		},
 	],
 };
 const { Meta } = Card;
@@ -151,15 +141,24 @@ export default function Home() {
 						</div>
 					</div>
 					{/* 右边区域 */}
-					<div className="inline-block p-[2rem] flex gap-[0.8rem] flex-wrap relative">
-						{person_Message.call.map(item => {
-							return (
-								<Card hoverable className="inline-block w-[16.4rem] call-card">
-									{item.icon()}
-									<Meta title={item.title} description={item.value} />
-								</Card>
-							);
-						})}
+					<div className="inline-block p-[2rem] flex  flex-nowrap gap-[0.8rem] relative">
+						<div className="content-card-big p-[2rem]">
+							<div className="text-[1.4rem]">Looking my eyes</div>
+							<div className="break-words mt-[2rem] ">
+								dasdad一shfkjahfklajdflakj/dlkfdjklfnm。asdasddsa dd sashfkjahfklajdflakj/dlkfdjklfnm shfkjahfklajdflakj/dlkfdjklfnm shfkjahfklajdflakj/dlkfdjklfnm shfkjahfklajdflakj/dlkfdjklfnm,fas shfkjahfklajdflakj/dlkfdjklfnm
+							</div>
+						</div>
+
+						<div className="flex flex-wrap items-start gap-[0.8rem]">
+							{person_Message.call.map(item => {
+								return (
+									<Card className="inline-block w-[16.4rem] h-[12rem] call-card border border-white bg-[#ffffffd1]">
+										{item.icon()}
+										<Meta title={item.title} description={item.value} />
+									</Card>
+								);
+							})}
+						</div>
 					</div>
 				</div>
 			</div>
