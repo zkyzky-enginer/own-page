@@ -82,15 +82,15 @@ export default function Home() {
 						{/* 头像圈 */}
 						<div className="w-full flex justify-center ">
 							{/* 悬浮小球 */}
-							{/* <div className="top-circle -top-[40px] left-[100px]"></div>
+							<div className="top-circle -top-[40px] left-[160px]"></div>
 							<div className="top-circle -top-[28px] left-[300px] w-[20px] h-[20px]"></div>
-							<div className="top-circle -bottom-[40px] right-[140px] w-[100px] h-[100px]"></div>
-							<div className="top-circle bottom-[80px] left-[120px] w-[40px] h-[40px]"></div>
-							<div className="top-circle top-[80px] right-[120px] "></div> */}
+							<div className="top-circle -bottom-[20px] right-[180px] w-[100px] h-[100px]"></div>
+							<div className="top-circle bottom-[80px] left-[200px] w-[40px] h-[40px]"></div>
+							<div className="top-circle top-[60px] right-[160px] "></div>
 
 							{/* 头像 */}
-							<div className="rounded-full w-[320px] h-[320px] flex items-center justify-center border border-4 border-white">
-								<div className="bg-[#e8e8e8] w-[300px] inline-block h-[300px] rounded-full person-photo"></div>
+							<div className="rounded-full w-[360px] h-[360px] flex items-center justify-center border border-4 border-white">
+								<div className="bg-[#e8e8e8] w-[340px] inline-block h-[340px] rounded-full person-photo"></div>
 							</div>
 						</div>
 					</Col>

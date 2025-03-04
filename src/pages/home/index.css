@@ -29,7 +29,7 @@
 	right: 0;
 	border-radius: 2rem;
 	bottom: 0;
-	background: #229488;
+	background: 'var(--primary-color)';
 	-webkit-transform: scaleX(0);
 	transform: scaleX(0);
 	-webkit-transform-origin: 0 50%;
@@ -50,7 +50,7 @@
 .top-circle {
 	border-radius: 100%;
 	position: absolute;
-	background: linear-gradient(322deg, #2bc0e4, #eaecc6);
+	background: linear-gradient(322deg, #fca608, #ffe8c9);
 	width: 6rem;
 	height: 6rem;
 	opacity: 0.8;

@@ -13,4 +13,15 @@ module.exports = {
 			],
 		},
 	},
+	style: {
+		postcss: {
+			plugins: [
+				require('postcss-pxtorem')({
+					rootValue: 14,
+					propList: ['*'],
+				}),
+				require('autoprefixer'),
+			],
+		},
+	},
 };
