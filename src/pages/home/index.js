@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect, useRef } from 'react';
 import { Col, Row, Button, Space, Divider, Card, Tag } from 'antd';
 import './index.css';
-import { ArrowRightOutlined, BulbTwoTone, CommentOutlined, GithubOutlined, PhoneFilled, QqOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, BulbTwoTone, BugTwoTone, HeartTwoTone, CrownTwoTone, ProfileTwoTone, CommentOutlined, GithubOutlined, PhoneTwoTone, SafetyCertificateTwoTone } from '@ant-design/icons';
 const person_Message = {
 	en_name: 'Zhou KangYu',
 	name: '周康瑜',
@@ -12,34 +12,34 @@ const person_Message = {
 	constellation: '处女座',
 	call: [
 		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
+			title: '联系方式',
+			value: '如果您有需要，您可以通过我的邮箱1161437723@qq.com联系我，或者直接call me 123456789098。',
+			icon: () => <PhoneTwoTone twoToneColor="#ff8c00" />,
 		},
 		{
-			title: 'QQ',
-			value: '1161437723',
-			icon: () => <QqOutlined />,
+			title: '前端框架',
+			value: '精通 Vue 2/3 + TypeScript，掌握 React 生态，熟悉 Hooks + Redux 的开发模式，具备组件化和状态管理的最佳实践能力',
+			icon: () => <CrownTwoTone twoToneColor="#ff8c00" />,
 		},
 		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
+			title: '工程化能力',
+			value: '熟练掌握 Git 工作流，具备良好的代码管理和协作能力。熟悉 Webpack、Vite 等构建工具，能够进行项目性能优化和模块化管理.',
+			icon: () => <BugTwoTone twoToneColor="#ff8c00" />,
 		},
 		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
+			title: '后端基础能力',
+			value: '熟悉 Node.js 开发，具备基础的后端服务搭建与优化能力。',
+			icon: () => <SafetyCertificateTwoTone twoToneColor="#ff8c00" />,
 		},
 		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
+			title: '杂谈',
+			value: '我们迷恋的不是狂风暴雨本身，而是日常秩序裂开缝隙时，从裂缝里涌进来青草腥气的风，是青春在钢筋森林里找到的野生洞穴.',
+			icon: () => <HeartTwoTone twoToneColor="#ff8c00" />,
 		},
 		{
-			title: '电话',
-			value: '123456789123',
-			icon: () => <PhoneFilled />,
+			title: '哈哈哈不知道说啥',
+			value: '当我们有一些确定的东西需要测试，并且使用UML要比使用代码测试起来代价更低一些时，就使用UML。',
+			icon: () => <ProfileTwoTone twoToneColor="#ff8c00" />,
 		},
 	],
 };
@@ -64,7 +64,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div ref={scrollRef} className="overflow-y-auto">
+		<div ref={scrollRef} className="overflow-y-auto overflow-x-hidden">
 			<div className={`bg-[#fafafa] relative top-banner`}>
 				{/* top板块 */}
 				<Row justify="center" align="middle" className="h-[540px]">
@@ -104,15 +104,15 @@ export default function Home() {
 					</Col>
 				</Row>
 			</div>
-			<div style={{ perspective: '1200px' }} className="home-banner w-full h-[800px] relative flex items-center justify-center">
+			<div style={{ perspective: '1200px' }} className="home-banner w-full h-[720px] relative flex items-center justify-center">
 				<div
-					className="glass-container absolute -top-[60px] flex"
+					className="glass-container absolute -top-[60px] flex "
 					style={{
 						transform: `perspective(1200px) rotateX(${rotate}deg)`,
 					}}
 				>
 					{/* 左边区域 */}
-					<div className="flex flex-col  h-full w-[500px] p-[2rem] inline-block text-[#333] ml-[1.2rem]">
+					<div className="flex flex-col flex-none h-full w-[360px] p-[2rem] pt-[4rem] inline-block text-[#333] ml-[1.2rem]">
 						<BulbTwoTone className="text-[3rem] my-[12px]" twoToneColor="#ff8c00" />
 						<div className="leading-[2.4rem] flex flex-col gap-[0.8rem] ml-[0.8rem]">
 							<span className="text-[2.4rem] font-bold">{person_Message.name}</span>
@@ -141,26 +141,39 @@ export default function Home() {
 						</div>
 					</div>
 					{/* 右边区域 */}
-					<div className="inline-block p-[2rem] flex  flex-nowrap gap-[0.8rem] relative">
+					<div className="inline-block px-[2rem] py-[4rem] flex w-full gap-[0.8rem] relative flex-none">
 						<div className="content-card-big p-[2rem]">
 							<div className="text-[1.4rem]">Looking my eyes</div>
-							<div className="break-words mt-[2rem] ">
-								dasdad一shfkjahfklajdflakj/dlkfdjklfnm。asdasddsa dd sashfkjahfklajdflakj/dlkfdjklfnm shfkjahfklajdflakj/dlkfdjklfnm shfkjahfklajdflakj/dlkfdjklfnm shfkjahfklajdflakj/dlkfdjklfnm,fas shfkjahfklajdflakj/dlkfdjklfnm
+							<div className="break-all mt-[2rem] text-[16px] leading-[20px]">
+								Hello, my name is Zhou Kangyu. I'm 23 years old and currently working in Dongguan. I graduated with a bachelor's degree and have two years of experience as a front-end developer. During my career, I've had the opportunity to
+								participate in building projects from the ground up, from 0 to 1.
+								<Divider plain>Text</Divider>
+								I'm passionate about creating user-friendly and efficient web applications, and I'm always eager to learn and grow in this field. I'm excited about the possibility of contributing to your team and bringing my skills to the table.
 							</div>
+							<div class="person-banner"></div>
 						</div>
 
-						<div className="flex flex-wrap items-start gap-[0.8rem]">
+						{/* <div className="float h-full relative"> */}
+						<div className="grid grid-cols-2 gap-x-2 gap-y-2 flex-0">
 							{person_Message.call.map(item => {
 								return (
-									<Card className="inline-block w-[16.4rem] h-[12rem] call-card border border-white bg-[#ffffffd1]">
-										{item.icon()}
-										<Meta title={item.title} description={item.value} />
+									<Card className="w-[20rem] h-[12rem] call-card">
+										<span className="text-[2rem] text-primary">{item.icon()}</span>
+										<p className="text-[1rem] mt-[0.8rem] font-bold">{item.title}</p>
+										<p className="text-[14px] mt-[1rem] text-[#666] leading-[20px]">{item.value}</p>
 									</Card>
 								);
 							})}
+							{/* </div> */}
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className="w-full flex-col home-banner h-[500px] flex items-center ">
+				<p className="text-white text-[3rem] mb-[1rem] font-bold">如果你的了解不止于此</p>
+				<p className="text-white text-[1.2rem] w-[55%] text-center leading-[26px]">
+					大家有对我不满的地方都可以提出来，尽情发言，一会就给你们全删了。妈的竟敢对皇帝不满，我来上网就是来当皇帝的，顺我者昌逆我者亡。能面刺寡人之过者，诛九族。上网谏寡人者，处极刑。谤讥于市朝闻寡人之耳者，赐自尽。
+				</p>
 			</div>
 		</div>
 	);

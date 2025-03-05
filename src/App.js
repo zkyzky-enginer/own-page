@@ -17,6 +17,9 @@ function App() {
 					Menu: {
 						itemBg: '#FAFAFA',
 					},
+					Card: {
+						bodyPadding: 16,
+					},
 				},
 			}}
 		>
