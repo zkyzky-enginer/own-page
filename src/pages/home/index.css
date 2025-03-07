@@ -210,3 +210,8 @@
 	height: 300px;
 	border-radius: 10px;
 }
+
+
+.glass-container .ant-row{
+	/* flex-wrap: nowrap; */
+}

@@ -43,12 +43,19 @@ const person_Message = {
 		},
 	],
 };
-const { Meta } = Card;
+
 
 export default function Home() {
 	const [rotate, setRotate] = useState(12);
 	// const scrollToBottom = () => {};
 	const scrollRef = useRef(null);
+
+	// 动态计算内容高度
+	const contentHeight = useRef(0);
+
+	useEffect(() => {
+		contentHeight.value = document.querySelector('.glass-container').offsetHeight;
+	}, []);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -104,69 +111,77 @@ export default function Home() {
 					</Col>
 				</Row>
 			</div>
-			<div style={{ perspective: '1200px' }} className="home-banner w-full h-[720px] relative flex items-center justify-center">
+			<div style={{ perspective: '1200px',height:contentHeight.value+'px' }} className="home-banner w-full relative flex items-center justify-center">
 				<div
 					className="glass-container absolute -top-[60px] flex "
 					style={{
 						transform: `perspective(1200px) rotateX(${rotate}deg)`,
 					}}
 				>
-					{/* 左边区域 */}
-					<div className="flex flex-col flex-none h-full w-[360px] p-[2rem] pt-[4rem] inline-block text-[#333] ml-[1.2rem]">
-						<BulbTwoTone className="text-[3rem] my-[12px]" twoToneColor="#ff8c00" />
-						<div className="leading-[2.4rem] flex flex-col gap-[0.8rem] ml-[0.8rem]">
-							<span className="text-[2.4rem] font-bold">{person_Message.name}</span>
-							<span className="text-[1.8rem] text-primary">{person_Message.mbti}</span>
-							{/* <span className="text-[1.8rem]"> {person_Message.constellation}</span> */}
-						</div>
-						<span className="leading-[24px] mt-[0.8rem] text-[#344054] text-[1rem] ml-[0.8rem] font-[AliHeavy]">孤独是人海如盲，一柄乌伞走夜雨，纵轻旅亦恐孤寒。如今忽觉，该是荒山落雪，暖盏无朋。听了一宿的残阕。虽千山吾独往矣。</span>
 
-						<div className="ml-[0.6rem] mt-[0.8rem] flex">
-							<Tag color="orange">摄影</Tag>
-							<Tag color="orange">唱歌</Tag>
-							<Tag color="orange">绘画</Tag>
-							<Tag color="orange">剪辑</Tag>
-							<Tag color="orange">游戏</Tag>
-						</div>
+					<Row>
+						<Col span={7}>
+							{/* 左边区域 */}
+							<div className="flex flex-col flex-none h-full p-[2rem] pt-[4rem] inline-block text-[#333] ml-[1.2rem]">
+								<BulbTwoTone className="text-[3rem] my-[12px]" twoToneColor="#ff8c00" />
+								<div className="leading-[2.4rem] flex flex-col gap-[0.8rem] ml-[0.8rem]">
+									<span className="text-[2.4rem] font-bold">{person_Message.name}</span>
+									<span className="text-[1.8rem] text-primary">{person_Message.mbti}</span>
+									{/* <span className="text-[1.8rem]"> {person_Message.constellation}</span> */}
+								</div>
+								<span className="leading-[24px] mt-[0.8rem] text-[#344054] text-[1rem] ml-[0.8rem] font-[AliHeavy]">孤独是人海如盲，一柄乌伞走夜雨，纵轻旅亦恐孤寒。如今忽觉，该是荒山落雪，暖盏无朋。听了一宿的残阕。虽千山吾独往矣。</span>
 
-						<div className="flex items-center gap-[0.4rem] ml-[0.4rem]">
-							<Button type="primary" className="mt-[2rem] bg-white text-[#666]" shape="round">
-								GitHub
-								<GithubOutlined />
-							</Button>
-							<Button type="primary" className="mt-[2rem] text-[12px]" shape="round">
-								查看详情
-								<CommentOutlined />
-							</Button>
-						</div>
-					</div>
-					{/* 右边区域 */}
-					<div className="inline-block px-[2rem] py-[4rem] flex w-full gap-[0.8rem] relative flex-none">
-						<div className="content-card-big p-[2rem]">
-							<div className="text-[1.4rem]">Looking my eyes</div>
-							<div className="break-all mt-[2rem] text-[16px] leading-[20px]">
-								Hello, my name is Zhou Kangyu. I'm 23 years old and currently working in Dongguan. I graduated with a bachelor's degree and have two years of experience as a front-end developer. During my career, I've had the opportunity to
-								participate in building projects from the ground up, from 0 to 1.
-								<Divider plain>Text</Divider>
-								I'm passionate about creating user-friendly and efficient web applications, and I'm always eager to learn and grow in this field. I'm excited about the possibility of contributing to your team and bringing my skills to the table.
+								<div className="ml-[0.6rem] mt-[0.8rem] flex">
+									<Tag color="orange">摄影</Tag>
+									<Tag color="orange">唱歌</Tag>
+									<Tag color="orange">绘画</Tag>
+									<Tag color="orange">剪辑</Tag>
+									<Tag color="orange">游戏</Tag>
+								</div>
+
+								<div className="flex items-center gap-[0.4rem] ml-[0.4rem]">
+									<Button type="primary" className="mt-[2rem] bg-white text-[#666]" shape="round">
+										GitHub
+										<GithubOutlined />
+									</Button>
+									<Button type="primary" className="mt-[2rem] text-[12px]" shape="round">
+										查看详情
+										<CommentOutlined />
+									</Button>
+								</div>
 							</div>
-							<div class="person-banner"></div>
-						</div>
+						</Col>
+						<Col span={19}>
+							{/* 右边区域 */}
+							<div className="inline-flex px-[2rem] py-[4rem] gap-[0.8rem] relative flex-none h-full">
+								<div className="content-card-big p-[2rem]">
+									<div className="text-[1.4rem]">Looking my eyes</div>
+									<div className="break-all mt-[2rem] text-[16px] leading-[20px]">
+										Hello, my name is Zhou Kangyu. I'm 23 years old and currently working in Dongguan. I graduated with a bachelor's degree and have two years of experience as a front-end developer. During my career, I've had the opportunity to
+										participate in building projects from the ground up, from 0 to 1.
+										<Divider plain>Text</Divider>
+										I'm passionate about creating user-friendly and efficient web applications, and I'm always eager to learn and grow in this field. I'm excited about the possibility of contributing to your team and bringing my skills to the table.
+									</div>
+									<div class="person-banner"></div>
+								</div>
 
-						{/* <div className="float h-full relative"> */}
-						<div className="grid grid-cols-2 gap-x-2 gap-y-2 flex-0">
-							{person_Message.call.map(item => {
-								return (
-									<Card className="w-[20rem] h-[12rem] call-card">
-										<span className="text-[2rem] text-primary">{item.icon()}</span>
-										<p className="text-[1rem] mt-[0.8rem] font-bold">{item.title}</p>
-										<p className="text-[14px] mt-[1rem] text-[#666] leading-[20px]">{item.value}</p>
-									</Card>
-								);
-							})}
-							{/* </div> */}
-						</div>
-					</div>
+								{/* <div className="float h-full relative"> */}
+								<div className="grid grid-cols-2 gap-x-2 gap-y-2 flex-0">
+									{person_Message.call.map(item => {
+										return (
+											<Card className="w-[20rem] h-[12rem] call-card">
+												<span className="text-[2rem] text-primary">{item.icon()}</span>
+												<p className="text-[1rem] mt-[0.8rem] font-bold">{item.title}</p>
+												<p className="text-[14px] mt-[1rem] text-[#666] leading-[20px]">{item.value}</p>
+											</Card>
+										);
+									})}
+								</div>
+							</div>
+						</Col>
+					</Row>
+					
+					
 				</div>
 			</div>
 			<div className="w-full flex-col home-banner h-[500px] flex items-center ">
