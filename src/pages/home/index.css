@@ -115,7 +115,9 @@
 
 .home-banner {
 	will-change: transform;
-	background: #ff8c00;
+	background: #FEA334;
+	/* background: #CCCCCC; */
+/* background-image: linear-gradient(-180deg, #FEA334 0%, #ff8c00, 100%); */
 	/* background: radial-gradient(circle, rgba(34, 193, 195, 0.2761555305716037) 0%, #8ed1fc 100%); */
 }
 
