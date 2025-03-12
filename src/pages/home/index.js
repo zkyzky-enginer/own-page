@@ -2,6 +2,8 @@ import React, { Component, useState, useEffect, useRef } from 'react';
 import { Col, Row, Button, Space, Divider, Card, Tag } from 'antd';
 import './index.css';
 import { ArrowRightOutlined, BulbTwoTone, BugTwoTone, HeartTwoTone, CrownTwoTone, ProfileTwoTone, CommentOutlined, GithubOutlined, PhoneTwoTone, SafetyCertificateTwoTone } from '@ant-design/icons';
+import CardStack from './card-stack';
+
 const person_Message = {
 	en_name: 'Zhou KangYu',
 	name: '周康瑜',
@@ -45,16 +47,19 @@ const person_Message = {
 };
 
 
+
 export default function Home() {
 	const [rotate, setRotate] = useState(12);
-	// const scrollToBottom = () => {};
 	const scrollRef = useRef(null);
 
 	// 动态计算内容高度
 	const contentHeight = useRef(0);
 
 	useEffect(() => {
-		contentHeight.value = document.querySelector('.glass-container').offsetHeight;
+		const glassContainer = document.querySelector('.glass-container');
+		if (glassContainer) {
+			contentHeight.current = glassContainer.offsetHeight;
+		}
 	}, []);
 
 	useEffect(() => {
@@ -71,7 +76,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div ref={scrollRef} className="overflow-y-auto overflow-x-hidden">
+		<div ref={scrollRef} >
 			<div className={`bg-[#fafafa] relative top-banner`}>
 				{/* top板块 */}
 				<Row justify="center" align="middle" className="h-[540px]">
@@ -111,14 +116,13 @@ export default function Home() {
 					</Col>
 				</Row>
 			</div>
-			<div style={{ perspective: '1200px',height:contentHeight.value+'px' }} className="home-banner w-full relative flex items-center justify-center">
+			<div style={{ perspective: '1200px', height: contentHeight.current ? contentHeight.current + 'px' : 'auto' }} className="home-banner w-full relative flex items-center justify-center">
 				<div
 					className="glass-container absolute -top-[60px] flex "
 					style={{
 						transform: `perspective(1200px) rotateX(${rotate}deg)`,
 					}}
 				>
-
 					<Row>
 						<Col span={7}>
 							{/* 左边区域 */}
@@ -162,14 +166,14 @@ export default function Home() {
 										<Divider plain>Text</Divider>
 										I'm passionate about creating user-friendly and efficient web applications, and I'm always eager to learn and grow in this field. I'm excited about the possibility of contributing to your team and bringing my skills to the table.
 									</div>
-									<div class="person-banner"></div>
+									<div className="person-banner"></div>
 								</div>
 
 								{/* <div className="float h-full relative"> */}
 								<div className="grid grid-cols-2 gap-x-2 gap-y-2 flex-0">
 									{person_Message.call.map(item => {
 										return (
-											<Card className="w-[20rem] h-[12rem] call-card">
+											<Card className="w-[20rem] h-[12rem] call-card" key={item.title}>
 												<span className="text-[2rem] text-primary">{item.icon()}</span>
 												<p className="text-[1rem] mt-[0.8rem] font-bold">{item.title}</p>
 												<p className="text-[14px] mt-[1rem] text-[#666] leading-[20px]">{item.value}</p>
@@ -180,15 +184,18 @@ export default function Home() {
 							</div>
 						</Col>
 					</Row>
-					
-					
 				</div>
 			</div>
-			<div className="w-full flex-col home-banner h-[500px] flex items-center ">
+			
+			
+			
+			<div className="w-full flex-col home-banner flex items-center">
 				<p className="text-white text-[3rem] mb-[1rem] font-bold">如果你的了解不止于此</p>
 				<p className="text-white text-[1.2rem] w-[55%] text-center leading-[26px]">
 					大家有对我不满的地方都可以提出来，尽情发言，一会就给你们全删了。妈的竟敢对皇帝不满，我来上网就是来当皇帝的，顺我者昌逆我者亡。能面刺寡人之过者，诛九族。上网谏寡人者，处极刑。谤讥于市朝闻寡人之耳者，赐自尽。
 				</p>
+				{/* 卡片堆叠效果区域 */}
+				<CardStack />
 			</div>
 		</div>
 	);

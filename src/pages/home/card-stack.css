@@ -1,0 +1,49 @@
+/* 卡片堆叠容器 */
+.card-stack-container {
+    align-items: center;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 64px;
+    height: min-content;
+    justify-content: center;
+    overflow: visible;
+    padding: 12px 0;
+    position: relative;
+    width: 100%;
+    will-change: var(--framer-will-change-effect-override, transform);
+}
+
+
+
+/* 卡片基本样式 */
+.stack-card {
+	 align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0px;
+    height: 688px;
+    justify-content: center;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+  	background-color: #ffffff;
+    width: 70%;
+    z-index: 1;
+		border-radius: 16px;
+		overflow: visible;
+}
+
+
+.stack-card h3{
+	color:var(--primary-color);
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.stack-card span{
+	color: #666;
+}

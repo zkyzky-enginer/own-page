@@ -45,10 +45,10 @@
   overflow: hidden;
 }
 
-.card {
+/* .card {
   padding: 32px;
   height: 100%;
-  background: transparent;
+  background: white;
   border-radius: 16px;
   position: relative;
 }
@@ -78,26 +78,21 @@
 }
 
 .sticky-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: white;
   border-radius: 16px;
   margin-bottom: 24px;
   position: relative;
   transition: all 0.5s ease-out;
-  height: 280px;
+  height: 680px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transform-origin: center top;
   transform: scale(1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .sticky-card.sticky {
   position: sticky;
   top: 20px;
 }
-
-/* 调整z-index，使后面的卡片叠在前面的上方 */
 .sticky-card:nth-child(1) { 
   z-index: 1; 
   transform: scale(1);
@@ -122,7 +117,6 @@
 	top:0px;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
   .sticky-cards-container {
     padding: 20px 16px;
@@ -139,4 +133,4 @@
   .sticky-card {
     min-height: 160px;
   }
-}
+} */

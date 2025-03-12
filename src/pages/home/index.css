@@ -213,5 +213,22 @@
 
 
 .glass-container .ant-row{
-	/* flex-wrap: nowrap; */
+	flex-wrap: nowrap;
+}
+
+/* 卡片堆叠区域样式 */
+.card-stack-section {
+	position: relative;
+	width: 100%;
+	margin: 10px 0;
+	padding: 0;
+	overflow: visible;
+	z-index: 10;
+}
+
+/* 确保卡片堆叠区域在移动端也能正常显示 */
+@media (max-width: 768px) {
+	.card-stack-section {
+		margin: 40px 0;
+	}
 }
