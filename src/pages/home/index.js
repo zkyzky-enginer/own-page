@@ -3,6 +3,7 @@ import { Col, Row, Button, Space, Divider, Card, Tag } from 'antd';
 import './index.css';
 import { ArrowRightOutlined, BulbTwoTone, BugTwoTone, HeartTwoTone, CrownTwoTone, ProfileTwoTone, CommentOutlined, GithubOutlined, PhoneTwoTone, SafetyCertificateTwoTone } from '@ant-design/icons';
 import CardStack from './card-stack';
+import { FloatButton } from 'antd';
 
 const person_Message = {
 	en_name: 'Zhou KangYu',
@@ -189,16 +190,112 @@ export default function Home() {
 			
 			
 			
-			<div className="w-full flex-col home-banner flex items-center">
-				<p className="text-white text-[3rem] mb-[1rem] font-bold">如果你的了解不止于此</p>
-				<p className="text-white text-[1.2rem] w-[55%] text-center leading-[26px]">
-					大家有对我不满的地方都可以提出来，尽情发言，一会就给你们全删了。妈的竟敢对皇帝不满，我来上网就是来当皇帝的，顺我者昌逆我者亡。能面刺寡人之过者，诛九族。上网谏寡人者，处极刑。谤讥于市朝闻寡人之耳者，赐自尽。
-				</p>
-				{/* 卡片堆叠效果区域 */}
-				<CardStack />
+			<div className="w-full flex-col home-banner flex items-center relative overflow-hidden">
+				{/* 背景几何装饰元素 */}
+				<div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+					{/* 大圆形装饰 */}
+					<div className="absolute -top-[10%] -left-[10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-r from-[#ff8c00] to-[#FEA334] opacity-20 animate-pulse-slow"></div>
+					<div className="absolute -bottom-[30%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-l from-[#ff8c00] to-[#FEA334] opacity-10 animate-pulse-slow"></div>
+					
+					{/* 小圆点装饰 */}
+					<div className="grid-dots"></div>
+					
+					{/* 浮动几何形状 */}
+					<div className="absolute top-[15%] left-[20%] w-[80px] h-[80px] bg-white opacity-10 rounded-md transform rotate-45 animate-float-slow"></div>
+					<div className="absolute top-[30%] right-[15%] w-[120px] h-[120px] border-2 border-white opacity-20 rounded-full animate-spin-very-slow"></div>
+					<div className="absolute bottom-[25%] left-[10%] w-[60px] h-[60px] border-2 border-white opacity-15 rounded-md transform rotate-12 animate-float-slow-reverse"></div>
+					<div className="absolute top-[60%] right-[25%] w-[40px] h-[40px] bg-white opacity-10 rounded-full animate-float-medium"></div>
+					<div className="absolute top-[50%] left-[40%] w-[30px] h-[30px] bg-white opacity-20 transform rotate-45 animate-spin-slow"></div>
+					
+					{/* 线条装饰 */}
+					<div className="absolute top-0 left-0 w-full h-full">
+						<svg className="w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+							<line x1="0" y1="0" x2="100" y2="100" stroke="white" strokeWidth="0.2" />
+							<line x1="100" y1="0" x2="0" y2="100" stroke="white" strokeWidth="0.2" />
+							<line x1="50" y1="0" x2="50" y2="100" stroke="white" strokeWidth="0.2" />
+							<line x1="0" y1="50" x2="100" y2="50" stroke="white" strokeWidth="0.2" />
+						</svg>
+					</div>
+				</div>
+				
+				{/* 内容区域 - 增加z-index确保在几何元素上方 */}
+				<div className="relative z-10 w-full flex flex-col items-center">
+					<p className="text-white text-[3rem] mb-[1rem] font-bold animate-fade-in bg-[#FEA334]">如果你的了解不止于此</p>
+					<p className="text-white text-[1.2rem] w-[55%] text-center leading-[26px] animate-fade-in-delay bg-[#FEA334]" >
+						大家有对我不满的地方都可以提出来，尽情发言，一会就给你们全删了。妈的竟敢对皇帝不满，我来上网就是来当皇帝的，顺我者昌逆我者亡。能面刺寡人之过者，诛九族。上网谏寡人者，处极刑。谤讥于市朝闻寡人之耳者，赐自尽。
+					</p>
+					{/* 卡片堆叠效果区域 */}
+					<CardStack />
+				</div>
 			</div>
 
-			<div className="w-full h-[100px] bg-[#FEA334]"></div>
+			{/* 视觉过渡区域 - 项目数据统计与装饰效果 */}
+			<div className="relative w-full">
+				{/* 顶部波浪装饰 */}
+				<div className="absolute top-0 left-0 w-full">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full">
+						<path fill="#FEA334" fillOpacity="1" d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+					</svg>
+				</div>
+				
+				{/* 内容区域 */}
+				<div className="bg-[#FEA334] w-full pt-[60px] pb-[100px] relative overflow-hidden">
+					{/* 悬浮几何装饰 */}
+					<div className="absolute top-[10%] left-[5%] w-[120px] h-[120px] rounded-full bg-white opacity-10 transform rotate-45"></div>
+					<div className="absolute bottom-[20%] left-[15%] w-[80px] h-[80px] rounded-full bg-white opacity-15"></div>
+					<div className="absolute top-[30%] right-[10%] w-[150px] h-[150px] rounded-full bg-white opacity-10"></div>
+					<div className="absolute bottom-[10%] right-[20%] w-[100px] h-[100px] rounded-md bg-white opacity-15 transform rotate-12"></div>
+					
+					{/* 内容容器 */}
+					<div className="max-w-[1200px] mx-auto px-[2rem] text-white">
+						<div className="text-center mb-[3rem]">
+							<h2 className="text-[2.5rem] font-bold mb-[1rem]">项目成就</h2>
+							<p className="text-[1.1rem] opacity-90 max-w-[700px] mx-auto">精心打造每一个项目，用心设计每一个交互，让用户体验脱颖而出</p>
+						</div>
+						
+						{/* 数据统计 */}
+						<div className="flex flex-wrap justify-center">
+							<div className="w-full sm:w-1/2 md:w-1/4 px-[1rem] mb-[2rem] text-center">
+								<div className="text-[3.5rem] font-bold leading-none mb-[0.5rem]">6+</div>
+								<div className="text-[1.2rem] font-medium">成功项目</div>
+								<div className="w-[40px] h-[3px] bg-white mx-auto mt-[0.8rem] opacity-70"></div>
+							</div>
+							<div className="w-full sm:w-1/2 md:w-1/4 px-[1rem] mb-[2rem] text-center">
+								<div className="text-[3.5rem] font-bold leading-none mb-[0.5rem]">3+</div>
+								<div className="text-[1.2rem] font-medium">框架精通</div>
+								<div className="w-[40px] h-[3px] bg-white mx-auto mt-[0.8rem] opacity-70"></div>
+							</div>
+							<div className="w-full sm:w-1/2 md:w-1/4 px-[1rem] mb-[2rem] text-center">
+								<div className="text-[3.5rem] font-bold leading-none mb-[0.5rem]">200+</div>
+								<div className="text-[1.2rem] font-medium">代码提交</div>
+								<div className="w-[40px] h-[3px] bg-white mx-auto mt-[0.8rem] opacity-70"></div>
+							</div>
+							<div className="w-full sm:w-1/2 md:w-1/4 px-[1rem] mb-[2rem] text-center">
+								<div className="text-[3.5rem] font-bold leading-none mb-[0.5rem]">2+</div>
+								<div className="text-[1.2rem] font-medium">行业经验</div>
+								<div className="w-[40px] h-[3px] bg-white mx-auto mt-[0.8rem] opacity-70"></div>
+							</div>
+						</div>
+						
+						{/* 技术标签 */}
+						<div className="flex flex-wrap justify-center gap-[1rem] mt-[1rem]">
+							<div className="bg-white bg-opacity-20 px-[1.2rem] py-[0.5rem] rounded-full text-[0.9rem] backdrop-blur-sm">Vue.js</div>
+							<div className="bg-white bg-opacity-20 px-[1.2rem] py-[0.5rem] rounded-full text-[0.9rem] backdrop-blur-sm">React</div>
+							<div className="bg-white bg-opacity-20 px-[1.2rem] py-[0.5rem] rounded-full text-[0.9rem] backdrop-blur-sm">TypeScript</div>
+							<div className="bg-white bg-opacity-20 px-[1.2rem] py-[0.5rem] rounded-full text-[0.9rem] backdrop-blur-sm">Node.js</div>
+							<div className="bg-white bg-opacity-20 px-[1.2rem] py-[0.5rem] rounded-full text-[0.9rem] backdrop-blur-sm">微信小程序</div>
+							<div className="bg-white bg-opacity-20 px-[1.2rem] py-[0.5rem] rounded-full text-[0.9rem] backdrop-blur-sm">Webpack</div>
+						</div>
+					</div>
+				</div>
+				
+				{/* 底部波浪装饰 */}
+				<div className="absolute bottom-0 left-0 w-full transform rotate-180">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full">
+						<path fill="#FEA334" fillOpacity="1" d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+					</svg>
+				</div>
+			</div>
 
 			{/* 页面结束栏目 */}
 			<div className="w-full bg-gradient-to-b from-[#f8f8f8] to-[#f0f0f0] py-[3rem] px-[2rem]">
@@ -273,6 +370,10 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+
+
+			<FloatButton.BackTop />
+
 		</div>
 	);
 }
