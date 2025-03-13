@@ -189,8 +189,7 @@ export default function Home() {
 			</div>
 			
 			
-			
-			<div className="w-full flex-col home-banner flex items-center relative overflow-hidden">
+			<div className="w-full flex-col home-banner flex items-center relative ">
 				{/* 背景几何装饰元素 */}
 				<div className="absolute inset-0 w-full h-full overflow-hidden z-0">
 					{/* 大圆形装饰 */}
@@ -218,7 +217,6 @@ export default function Home() {
 					</div>
 				</div>
 				
-				{/* 内容区域 - 增加z-index确保在几何元素上方 */}
 				<div className="relative z-10 w-full flex flex-col items-center">
 					<p className="text-white text-[3rem] mb-[1rem] font-bold animate-fade-in bg-[#FEA334]">如果你的了解不止于此</p>
 					<p className="text-white text-[1.2rem] w-[55%] text-center leading-[26px] animate-fade-in-delay bg-[#FEA334]" >

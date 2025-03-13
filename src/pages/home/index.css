@@ -117,6 +117,7 @@
 	will-change: transform;
 	position: relative;
 	background: #FEA334;
+	min-height:min-content;
 	z-index: 1;
 }
 

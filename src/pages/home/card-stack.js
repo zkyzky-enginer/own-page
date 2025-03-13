@@ -87,7 +87,7 @@ const CardStack = () => {
 					<div className={`flex-1 w-full h-full relative p-[2rem]`} style={{ backgroundColor: card.color + '10' || '#FF8C0010' } }>
 						{/* 引入porject-img下的图片 */}
 						<img src={`./img/project-img/${card.img}`} className="w-full h-[85%] border-1 border-[#e8e8e8] rounded-lg" alt="项目图片1" />
-						{card.otherImg && <img src={`./img/project-img/${card.otherImg}`}  className="absolute bottom-20px -right-[40px] w-[420px] border-1 border-[#e8e8e8] rounded-lg" alt="项目图片2" />}
+						{card.otherImg && <img src={`./img/project-img/${card.otherImg}`}  className="absolute bottom-20px -left-[40px] w-[420px] border-1 border-[#e8e8e8] rounded-lg" alt="项目图片2" />}
 					</div>
 				</div>
 			))}
