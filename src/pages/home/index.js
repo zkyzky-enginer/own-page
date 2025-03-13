@@ -197,6 +197,82 @@ export default function Home() {
 				{/* 卡片堆叠效果区域 */}
 				<CardStack />
 			</div>
+
+			<div className="w-full h-[100px] bg-[#FEA334]"></div>
+
+			{/* 页面结束栏目 */}
+			<div className="w-full bg-gradient-to-b from-[#f8f8f8] to-[#f0f0f0] py-[3rem] px-[2rem]">
+				<div className="max-w-[1200px] mx-auto">
+					{/* 顶部区域 */}
+					<div className="flex flex-wrap justify-between mb-[2rem] border-b border-gray-200 pb-[2rem]">
+						{/* 左侧个人信息 */}
+						<div className="flex flex-col w-full md:w-[30%] mb-[2rem] md:mb-0">
+							<div className="flex items-center mb-[1rem]">
+								<BulbTwoTone className="text-[2.5rem]" twoToneColor="#ff8c00" />
+								<span className="ml-[0.8rem] text-[1.8rem] font-bold text-[#333]">{person_Message.name}</span>
+							</div>
+							<p className="text-[1rem] text-[#666] leading-[1.8] mb-[1rem]">
+								感谢您的访问，如果您对我的作品或技能有任何兴趣，欢迎随时与我联系交流。
+							</p>
+							<div className="flex items-center">
+								<PhoneTwoTone className="text-[1.2rem]" twoToneColor="#ff8c00" />
+								<span className="ml-[0.5rem] text-[1rem] text-[#666]">{person_Message.phone}</span>
+							</div>
+							<div className="flex items-center mt-[0.5rem]">
+								<CommentOutlined className="text-[1.2rem] text-[#ff8c00]" />
+								<span className="ml-[0.5rem] text-[1rem] text-[#666]">{person_Message.email}</span>
+							</div>
+						</div>
+
+						{/* 右侧导航链接 */}
+						<div className="flex flex-wrap w-full md:w-[65%]">
+							<div className="w-1/2 md:w-1/3 mb-[1.5rem]">
+								<h4 className="text-[1.2rem] font-bold text-[#333] mb-[1rem]">技能导航</h4>
+								<ul>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">前端开发</a></li>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">UI/UX设计</a></li>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">移动端适配</a></li>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">性能优化</a></li>
+								</ul>
+							</div>
+							<div className="w-1/2 md:w-1/3 mb-[1.5rem]">
+								<h4 className="text-[1.2rem] font-bold text-[#333] mb-[1rem]">相关资源</h4>
+								<ul>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">作品集</a></li>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">博客文章</a></li>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">技术分享</a></li>
+									<li className="mb-[0.5rem]"><a href="#" className="text-[#666] hover:text-[#ff8c00] transition-colors">学习资料</a></li>
+								</ul>
+							</div>
+							<div className="w-full md:w-1/3 mb-[1.5rem]">
+								<h4 className="text-[1.2rem] font-bold text-[#333] mb-[1rem]">关注我</h4>
+								<div className="flex gap-[1rem]">
+									<Button type="text" shape="circle" icon={<GithubOutlined className="text-[1.5rem] text-[#555]" />} />
+									<Button type="text" shape="circle" icon={<HeartTwoTone className="text-[1.5rem]" twoToneColor="#ff8c00" />} />
+									<Button type="text" shape="circle" icon={<CrownTwoTone className="text-[1.5rem]" twoToneColor="#ff8c00" />} />
+									<Button type="text" shape="circle" icon={<ProfileTwoTone className="text-[1.5rem]" twoToneColor="#ff8c00" />} />
+								</div>
+								<Button type="primary" className="mt-[1rem]" shape="round">
+									添加微信
+									<CommentOutlined />
+								</Button>
+							</div>
+						</div>
+					</div>
+
+					{/* 底部版权区域 */}
+					<div className="flex flex-col md:flex-row justify-between items-center pt-[1rem]">
+						<div className="text-[0.9rem] text-[#999] mb-[1rem] md:mb-0">
+							© {new Date().getFullYear()} {person_Message.name}. 保留所有权利。
+						</div>
+						<div className="flex gap-[1.5rem]">
+							<a href="#" className="text-[0.9rem] text-[#999] hover:text-[#ff8c00] transition-colors">隐私政策</a>
+							<a href="#" className="text-[0.9rem] text-[#999] hover:text-[#ff8c00] transition-colors">使用条款</a>
+							<a href="#" className="text-[0.9rem] text-[#999] hover:text-[#ff8c00] transition-colors">网站地图</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
