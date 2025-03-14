@@ -2,7 +2,7 @@ import './index.css';
 import React, { useState, useEffect } from 'react';
 import BlogList from './blog-list';
 import BlogNav from './BlogNav';
-
+import { Affix } from 'antd';
 // 定义博客内容组件
 const BlogContent = ({ activeKey }) => {
 	switch(activeKey) {
@@ -242,7 +242,6 @@ export default function Blog() {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
-		// 确保组件完全加载后再显示几何元素
 		setIsLoaded(true);
 	}, []);
 
@@ -257,9 +256,12 @@ export default function Blog() {
 			
 			{/* 添加几何背景元素 */}
 			{isLoaded && <GeometricElements />}
-			
-			{/* 导航栏作为一个独立的直接子元素，确保吸顶效果 */}
-			<BlogNav activeKey={activeKey} onSelect={handleNavSelect} />
+
+
+			{/* 导航栏 */}
+			<Affix offsetTop={100}>
+        <BlogNav activeKey={activeKey} onSelect={handleNavSelect} />
+      </Affix>
 			
 			<div className="blog-container">
 				{/* 博客内容区域 */}

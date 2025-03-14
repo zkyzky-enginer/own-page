@@ -4,7 +4,7 @@
 	background-color: #fafafa;
 	padding: 2rem 0;
 	position: relative;
-	overflow: visible !important; /* 允许子元素溢出以确保sticky效果 */
+	overflow: hidden; /* 允许子元素溢出以确保sticky效果 */
 	z-index: 0; /* 确保定位上下文 */
 }
 
