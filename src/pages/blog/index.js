@@ -1,9 +1,7 @@
-
 import './index.css';
 import { Row, Col, ConfigProvider } from 'antd';
 import { Tabs } from 'antd';
-import React, { Component, useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import React, { useState } from 'react';
 import BlogList from './blog-list';
 
 export function Content() {
@@ -56,7 +54,7 @@ export default function Blog() {
 		},
 	];
 
-	const changeTabActiveKey = (key: string) => {
+	const changeTabActiveKey = (key) => {
 		// setTabActiveKey(key);
 	};
 
