@@ -3,6 +3,7 @@ import { Card, Tag, Space, Typography, Avatar, Button, Tooltip } from 'antd';
 import { CalendarOutlined, UserOutlined, EyeOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons';
 import Masonry from 'react-masonry-css';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const { Meta } = Card;
 const { Title, Paragraph } = Typography;
@@ -251,9 +252,16 @@ export default function BlogList() {
 									</div>
 
 									{/* 阅读更多按钮 */}
-									<Button type="primary" className="blog-card-read-more">
-										阅读更多
-									</Button>
+									<div className="blog-card-actions">
+										<Link to={`/blog/detail/${card.id}`}>
+											<Button 
+												type="primary" 
+												className="blog-card-read-more"
+												style={{ backgroundColor: '#ff8c00', borderColor: '#ff8c00' }}>
+												阅读更多
+											</Button>
+										</Link>
+									</div>
 								</div>
 							}
 						/>

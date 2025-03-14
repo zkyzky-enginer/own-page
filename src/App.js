@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import Home from './pages/home/index';
 import Blog from './pages/blog/index';
+import BlogDetail from './pages/blog/blog-detail';
 import 'antd/dist/reset.css';
 import { primary_theme } from './theme/primary';
 import LayoutContent from './component/layout';
@@ -28,6 +29,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/blog" element={<Blog />} />
+						<Route path="/blog/detail/:id" element={<BlogDetail />} />
 					</Routes>
 				</LayoutContent>
 			</BrowserRouter>
