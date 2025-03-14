@@ -150,6 +150,17 @@ const cardData = [
 	},
 ];
 
+// 修改标签颜色函数
+const getTagColor = (tag) => {
+	if (tag.includes('React')) return 'orange';
+	if (tag.includes('Vue')) return 'gold';
+	if (tag.includes('Type')) return 'volcano';
+	if (tag.includes('Node')) return 'orange';
+	if (tag.includes('CSS')) return 'gold';
+	if (tag.includes('Grid')) return 'volcano';
+	return 'orange'; // 默认值改为橙色
+};
+
 export default function BlogList() {
 	// 定义瀑布流的响应式列数
 	const breakpointColumnsObj = {
@@ -201,15 +212,10 @@ export default function BlogList() {
 										{card.description}
 									</Paragraph>
 									
-									{/* 标签 */}
+									{/* 标签 - 更新颜色 */}
 									<div className="blog-card-tags">
 										{card.tags.map((tag) => (
-											<Tag key={tag} color={
-												tag.includes('React') ? 'blue' : 
-												tag.includes('Vue') ? 'green' :
-												tag.includes('Type') ? 'purple' :
-												tag.includes('Node') ? 'volcano' : 'blue'
-											}>{tag}</Tag>
+											<Tag key={tag} color={getTagColor(tag)}>{tag}</Tag>
 										))}
 									</div>
 

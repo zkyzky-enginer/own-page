@@ -1,28 +1,230 @@
-.bg {
-	background-image: url('/src/assets/images/blog-bg.svg');
-	background-repeat: no-repeat;
-	/* background: rgb(218, 255, 196);
-	background: linear-gradient(90deg, rgba(218, 255, 196, 1) 18%, rgba(164, 205, 255, 1) 63%); */
-	background-size: cover;
+/* 博客页面背景 */
+.blog-page {
+	min-height: 100vh;
 	background-color: #fafafa;
+	padding: 2rem 0;
+	position: relative;
+	overflow: visible !important; /* 允许子元素溢出以确保sticky效果 */
+	z-index: 0; /* 确保定位上下文 */
 }
 
-.ant-tabs-tabpane {
-	padding: 1rem;
-	overflow: visible;
+/* 几何背景元素容器 */
+.blog-page::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(252,252,252,0.85) 100%);
+	z-index: -1;
 }
 
-.ant-tabs-nav-list {
-	min-width: 200px;
+/* 几何背景元素组的容器 */
+.geometric-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 0;
+	pointer-events: none; /* 确保不会干扰用户交互 */
 }
 
-.ant-tabs-nav {
-	padding-top: 2rem;
+/* 添加几何元素装饰 */
+.blog-page::after {
+	content: '';
+	position: absolute;
+	top: -15%;
+	right: -10%;
+	width: 50%;
+	height: 70%;
+	background: radial-gradient(circle at center, rgba(255,140,0,0.15) 0%, rgba(254,163,52,0.05) 60%, rgba(255,255,255,0) 70%);
+	border-radius: 50%;
+	z-index: -1;
+	animation: float-slow 15s ease-in-out infinite;
 }
 
-.ant-tabs-tab {
-	display: flex;
-	justify-content: center;
+/* 顶部左侧几何形状 - 橙色圆形 */
+.geo-circle-1 {
+	position: absolute !important;
+	top: 5% !important;
+	left: -5% !important;
+	width: 25vw !important;
+	height: 25vw !important;
+	max-width: 400px !important;
+	max-height: 400px !important;
+	background: radial-gradient(circle at 30% 30%, rgba(255,140,0,0.2) 0%, rgba(254,163,52,0.1) 60%) !important;
+	border-radius: 50% !important;
+	z-index: 0 !important;
+	animation: pulse-slow 10s ease-in-out infinite !important;
+}
+
+/* 底部右侧几何形状 - 橙色三角形 */
+.geo-triangle {
+	position: absolute !important;
+	bottom: -10% !important;
+	right: 10% !important;
+	width: 30vw !important;
+	height: 30vw !important;
+	max-width: 500px !important;
+	max-height: 500px !important;
+	background: conic-gradient(from 135deg at 50% 50%, rgba(255,140,0,0.15) 0%, rgba(254,163,52,0.05) 50%, rgba(255,255,255,0) 100%) !important;
+	clip-path: polygon(50% 0%, 0% 100%, 100% 100%) !important;
+	z-index: 0 !important;
+	animation: rotate-slow 30s linear infinite !important;
+}
+
+/* 中间装饰线条 - 水平线 */
+.geo-line {
+	position: absolute !important;
+	top: 50% !important;
+	left: -5% !important;
+	width: 110% !important;
+	height: 1px !important;
+	background: linear-gradient(90deg, 
+		rgba(255,140,0,0) 0%, 
+		rgba(255,140,0,0.2) 20%, 
+		rgba(254,163,52,0.3) 50%,
+		rgba(255,140,0,0.2) 80%,
+		rgba(255,140,0,0) 100%
+	) !important;
+	z-index: 0 !important;
+	transform-origin: center !important;
+	animation: width-pulse 15s ease-in-out infinite !important;
+}
+
+/* 右上角装饰点阵 */
+.geo-dots {
+	position: absolute !important;
+	top: 10% !important;
+	right: 5% !important;
+	width: 20vw !important;
+	height: 20vw !important;
+	max-width: 300px !important;
+	max-height: 300px !important;
+	background-image: radial-gradient(rgba(255,140,0,0.4) 1px, transparent 1px) !important;
+	background-size: 10px 10px !important;
+	z-index: 0 !important;
+	opacity: 0.8 !important;
+	transform-origin: center !important;
+	animation: scale-fade 20s ease-in-out infinite !important;
+}
+
+/* 左下角装饰方形 */
+.geo-square {
+	position: absolute !important;
+	bottom: 10% !important;
+	left: 5% !important;
+	width: 15vw !important;
+	height: 15vw !important;
+	max-width: 200px !important;
+	max-height: 200px !important;
+	border: 2px solid rgba(255,140,0,0.3) !important;
+	transform: rotate(15deg) !important;
+	z-index: 0 !important;
+	animation: rotate-reverse 25s linear infinite !important;
+}
+
+/* 右下角装饰圆环 */
+.geo-ring {
+	position: absolute !important;
+	bottom: 15% !important;
+	right: 15% !important;
+	width: 10vw !important;
+	height: 10vw !important;
+	max-width: 150px !important;
+	max-height: 150px !important;
+	border: 6px solid rgba(254,163,52,0.6) !important;
+	border-radius: 50% !important;
+	z-index: 0 !important;
+	animation: pulse-slow 15s ease-in-out infinite alternate !important;
+}
+
+/* 博客内容容器 */
+.blog-container {
+	max-width: 90%;
+	margin: 1rem auto 0;
+	padding: 0 1rem;
+	position: relative; 
+	z-index: 2; /* 确保内容在几何背景上方 */
+}
+
+/* 定义动画 */
+@keyframes float-slow {
+	0%, 100% { transform: translate(0, 0); }
+	50% { transform: translate(30px, 30px); }
+}
+
+@keyframes pulse-slow {
+	0%, 100% { transform: scale(1); opacity: 0.7; }
+	50% { transform: scale(1.1); opacity: 0.5; }
+}
+
+@keyframes rotate-slow {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+	from { transform: rotate(15deg); }
+	to { transform: rotate(-345deg); }
+}
+
+@keyframes width-pulse {
+	0%, 100% { transform: scaleX(1); opacity: 0.5; }
+	50% { transform: scaleX(0.95); opacity: 0.8; }
+}
+
+@keyframes scale-fade {
+	0%, 100% { transform: scale(1); opacity: 0.5; }
+	50% { transform: scale(1.1); opacity: 0.2; }
+}
+
+/* 博客内容区域 */
+.blog-content-area {
+	margin-top: 2rem;
+	min-height: 70vh;
+	animation: fadeInUp 0.5s ease-out;
+	position: relative;
+	z-index: 2;
+}
+
+/* 内容占位符样式 */
+.blog-content-placeholder {
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 12px;
+	padding: 3rem 2rem;
+	text-align: center;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+	animation: fadeIn 0.5s ease-out;
+}
+
+.blog-content-placeholder h2 {
+	color: #ff8c00;
+	margin-bottom: 1.5rem;
+	font-size: 1.8rem;
+}
+
+.blog-content-placeholder p {
+	color: #666;
+	font-size: 1.1rem;
+	max-width: 600px;
+	margin: 0 auto;
+	line-height: 1.6;
+}
+
+/* 淡入动画 */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 /* 博客列表容器 */
@@ -100,7 +302,7 @@
 	padding: 0.5rem 1rem;
 	border-radius: 20px;
 	font-size: 0.875rem;
-	color: #1890ff;
+	color: #ff8c00;
 	backdrop-filter: blur(4px);
 }
 
@@ -160,7 +362,7 @@
 
 .blog-card-read-more:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+	box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
 }
 
 /* 响应式布局 */
@@ -171,6 +373,22 @@
 	
 	.blog-card-title {
 		font-size: 1.1rem !important;
+	}
+
+	.blog-page {
+		padding: 1rem 0;
+	}
+
+	.blog-content-placeholder {
+		padding: 2rem 1rem;
+	}
+
+	.blog-content-placeholder h2 {
+		font-size: 1.5rem;
+	}
+
+	.blog-content-placeholder p {
+		font-size: 1rem;
 	}
 }
 

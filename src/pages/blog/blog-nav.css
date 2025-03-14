@@ -1,0 +1,217 @@
+/* 博客导航容器 */
+.blog-nav-container {
+  width: 50%;
+  background: linear-gradient(to right, rgba(247, 247, 247, 0.9), rgba(255, 255, 255, 0.9));
+  backdrop-filter: blur(10px);
+  border-radius: 80px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin: 0 auto 2rem auto;
+  position: sticky;
+  top: 1rem;
+  z-index: 1000; /* 提高z-index值确保吸顶效果 */
+  padding: 4px 0;
+}
+
+/* 导航栏 */
+.blog-nav {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  overflow: visible; /* 改为visible以确保指示器在内容之上 */
+  padding: 0.5rem 0;
+}
+
+/* 导航项 */
+.blog-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  user-select: none;
+  overflow: hidden; /* 确保填充效果不会溢出 */
+	margin-bottom: 2px;
+}
+
+/* 添加填充动画的伪元素 */
+.blog-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 140, 0, 0.1); /* 使用半透明的主题色 */
+  border-radius: 100%; /* 从圆形开始扩散 */
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
+}
+
+/* 悬浮时填充效果 */
+.blog-nav-item:hover::before {
+  width: 250%;  /* 扩散得比元素宽以确保完全覆盖 */
+  height: 250%;
+}
+
+/* 悬浮时提升效果 */
+.blog-nav-item:hover {
+  transform: translateY(-2px);
+  color: #ff8c00;
+}
+
+/* 导航项图标 */
+.nav-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #666;
+}
+
+/* 导航项文字 */
+.blog-nav-item span {
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  color: #666;
+}
+
+/* 悬浮时图标和文字颜色变化 */
+.blog-nav-item:hover .nav-icon,
+.blog-nav-item:hover span {
+  color: #ff8c00;
+}
+
+/* 活动状态 */
+.blog-nav-item.active .nav-icon,
+.blog-nav-item.active span {
+  color: #ff8c00;
+  font-weight: 600;
+}
+
+.blog-nav-item.active .nav-icon {
+  transform: scale(1.2);
+}
+
+/* 活动项目的伪元素样式 - 保持填充 */
+.blog-nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250%;
+  height: 250%;
+  background-color: rgba(255, 140, 0, 0.1);
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* 圆点指示器 */
+.nav-indicator {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 6px; /* 圆点大小 */
+  height: 6px; /* 圆点大小 */
+  background: #ff8c00; /* 使用纯色 */
+  box-shadow: 0 0 8px rgba(255, 140, 0, 0.6); /* 发光效果 */
+  border-radius: 50%; /* 设为圆形 */
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), 
+              opacity 0.2s ease;
+  z-index: 1;
+  opacity: 0; /* 初始透明度为0，等JS计算完位置后再显示 */
+}
+
+/* 鼠标按下效果 */
+.blog-nav-item:active {
+  transform: scale(0.95);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .blog-nav-container {
+    width: 90%; /* 在移动设备上增加宽度 */
+  }
+  
+  .blog-nav {
+    flex-wrap: wrap;
+    justify-content: center; /* 调整为居中 */
+  }
+  
+  .blog-nav-item {
+    padding: 0.6rem 0.8rem;
+    margin: 0.25rem;
+  }
+  
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+  
+  .blog-nav-item span {
+    font-size: 0.8rem;
+  }
+  
+  .nav-indicator {
+    display: none; /* 在移动设备上隐藏指示器，因为布局变化会导致指示器位置错误 */
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-nav-item {
+  animation: fadeIn 0.5s forwards;
+}
+
+/* 为每个导航项添加延迟 */
+.blog-nav-item:nth-child(1) { animation-delay: 0.1s; }
+.blog-nav-item:nth-child(2) { animation-delay: 0.15s; }
+.blog-nav-item:nth-child(3) { animation-delay: 0.2s; }
+.blog-nav-item:nth-child(4) { animation-delay: 0.25s; }
+.blog-nav-item:nth-child(5) { animation-delay: 0.3s; }
+.blog-nav-item:nth-child(6) { animation-delay: 0.35s; }
+.blog-nav-item:nth-child(7) { animation-delay: 0.4s; }
+
+/* 悬停时的图标移动效果 */
+.blog-nav-item:hover .nav-icon {
+  transform: translateY(-3px);
+}
+
+/* 活动项的图标移动和缩放效果 */
+.blog-nav-item.active:hover .nav-icon {
+  transform: scale(1.2) translateY(-3px);
+}
+
+/* 发光效果 - 移除，用新的填充效果替代 */
+.blog-nav-item.active::after {
+  content: none;
+}
+
+/* 移除旧的脉动动画 */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+} 
