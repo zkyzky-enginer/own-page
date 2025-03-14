@@ -1,4 +1,4 @@
-import { BrowserRouter,useLocation } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import Home from './pages/home/index';
@@ -8,6 +8,7 @@ import AuthPage from './pages/login';
 import 'antd/dist/reset.css';
 import { primary_theme } from './theme/primary';
 import LayoutContent from './component/layout';
+import Account from './pages/account';
 import './App.css';
 
 function App() {
@@ -29,10 +30,11 @@ function App() {
 				<LayoutContent>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						 <Route path="/login" element={<AuthPage />} />
-         		 <Route path="/register" element={<AuthPage />} />
-						<Route path="/blog" element={<Blog />} />
-						<Route path="/blog/detail/:id" element={<BlogDetail />} />
+						  <Route path="/login" element={<AuthPage />} />
+         		  <Route path="/register" element={<AuthPage />} />
+							<Route path="/blog" element={<Blog />} />
+							<Route path="/accout" element={<Account />} />
+							<Route path="/blog/detail/:id" element={<BlogDetail />} />
 					</Routes>
 				</LayoutContent>
 			</BrowserRouter>
