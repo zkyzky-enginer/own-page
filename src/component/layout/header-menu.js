@@ -15,8 +15,8 @@ const items = [
 		key: 'blog',
 	},
 	{
-		label: 'Navigation Three - Submenu',
-		key: 'SubMenu',
+		label: '个人信息',
+		key: 'account',
 	},
 ];
 

@@ -117,7 +117,7 @@ export default function Home() {
 					</Col>
 				</Row>
 			</div>
-			<div style={{ perspective: '1200px', height: contentHeight.current ? contentHeight.current + 'px' : 'auto' }} className="home-banner w-full relative flex items-center justify-center">
+			<div style={{ perspective: '1200px', height: contentHeight.current ? contentHeight.current + 'px' : 'auto' }} className="home-banner w-full relative min-h-[500px] flex items-center justify-center">
 				<div
 					className="glass-container absolute -top-[60px] flex "
 					style={{

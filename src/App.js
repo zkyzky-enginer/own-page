@@ -33,7 +33,7 @@ function App() {
 						  <Route path="/login" element={<AuthPage />} />
          		  <Route path="/register" element={<AuthPage />} />
 							<Route path="/blog" element={<Blog />} />
-							<Route path="/accout" element={<Account />} />
+							<Route path="/account" element={<Account />} />
 							<Route path="/blog/detail/:id" element={<BlogDetail />} />
 					</Routes>
 				</LayoutContent>
